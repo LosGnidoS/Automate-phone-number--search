@@ -1,19 +1,33 @@
 #!/usr/bin/python3
+#google-scraping.py
 #created by KIRILL SHVEDOV
-#github: "LosGnidoS"
+
+'''OPENS FIRST FEW LINKS 
+AFTER SEARCHING IN GOOGLE'''
+
+import requests, bs4, webbrowser, sys, pyperclip
 
 
-'''SIMPLE AUTOMATIZATION SCRIPT
-FOR GOOGLE-MAPS SEARCH'''
-
-#1.CTRL-C SOME ADDRESS YOU WANT TO REACH
-#2.RUN THIS SCRIPT
-
-import webbrowser, sys, pyperclip
-if len(sys.argv) > 1 :
-	address = ''.join(sys.argv[1:])
+print('Processing...')
 
 address = pyperclip.paste()
-webbrowser.open('''https://www.google.
-com/maps/place/'''+ address)
+if len(sys.argv) > 1 :
+	address = ''.join(sys.argv[1:])
+res = requests.get("https://www.google.\
+	com/search?q=" + address)
+res.raise_for_status()
+
+soup = bs4.BeautifulSoup(res.text,\
+	"html.parser")
+
+linkElems = soup.select('.r a')
+print(len(linkElems))
+numOpen = min(5, len(linkElems))
+for i in range(numOpen):
+	webbrowser.open("http://google.com"\
+	 + linkElems[i.get('href')])
+
+
+
+
 
