@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 #created by KIRILL SHVEDOV
 
+
 import time
 
 input()
@@ -15,14 +16,21 @@ try:
 		input()
 		lapTime = round(time.time() - \
 				lastTime, 2)
+		
 		totalTime = round(time.time() -\
 				  startTime, 2)
+		
 		print('Result #%s: %s, (%s)' %
 			(lapNum, totalTime, \
 			 lapTime), end ='')
+		
 		lapNum += 1
 		lastTime = time.time()
 
 except KeyboardInterrupt:
-	print('\nDone.')
+	print('\nDone.Result #%s:\
+	Laptime is (%s)' %
+			(lapNum, lapTime))
+
+
 
