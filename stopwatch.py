@@ -1,6 +1,10 @@
 #!/usr/bin/python3
 #created by KIRILL SHVEDOV
 
+'''SIMPLE TIME SCRPT STOPWATCH
+TYPE ENTER FOR STARTING STOPWATCH
+AND FOR ENDING A LAP'''
+
 
 import time
 
