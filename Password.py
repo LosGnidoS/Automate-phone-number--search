@@ -1,3 +1,12 @@
+#!/usr/bin/python3
+#Created by KIRILL SHVEDOV
+
+
+'''SIMPLE PASSWORD-
+GENERATOR SCRIPT'''
+
+
+
 import random
 
 lower = "abcdefghijklmnopqrstuvwxyz" 
